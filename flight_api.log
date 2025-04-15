@@ -1,0 +1,280 @@
+2025-04-12 12:17:01,740 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-12 12:17:01,743 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-12 12:17:01,746 - __main__ - INFO - Starting Flask server...
+2025-04-12 12:17:01,796 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2025-04-12 12:17:01,796 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 12:17:01,814 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:17:02,373 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-12 12:17:02,377 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-12 12:17:02,381 - __main__ - INFO - Starting Flask server...
+2025-04-12 12:17:02,408 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:17:02,420 - werkzeug - INFO -  * Debugger PIN: 421-849-148
+2025-04-12 12:17:50,700 - __main__ - INFO - Processing request for flight AS6707
+2025-04-12 12:17:50,703 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Microsoft Edge";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/search', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9,en-IN;q=0.8'}
+2025-04-12 12:17:50,704 - __main__ - INFO - Using API key from environment variable
+2025-04-12 12:17:50,704 - __main__ - INFO - Generated query: What is the status of flight AS6707?
+2025-04-12 12:17:50,705 - flight_api - INFO - Processing request for flight AS6707
+2025-04-12 12:17:50,706 - flight_api - INFO - Making API request to http://api.aviationstack.com/v1/flights
+2025-04-12 12:17:50,707 - flight_api - DEBUG - Request params: {'access_key': 'd6ad3f6bca95dcd666a53da7dbae588a', 'flight_iata': 'AS6707'}
+2025-04-12 12:17:50,716 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): api.aviationstack.com:80
+2025-04-12 12:17:51,435 - urllib3.connectionpool - DEBUG - http://api.aviationstack.com:80 "GET /v1/flights?access_key=d6ad3f6bca95dcd666a53da7dbae588a&flight_iata=AS6707 HTTP/1.1" 200 None
+2025-04-12 12:17:51,437 - flight_api - DEBUG - API Response status: 200
+2025-04-12 12:17:51,438 - flight_api - DEBUG - API Response data: {
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 2,
+    "total": 2
+  },
+  "data": [
+    {
+      "flight_date": "2025-04-12",
+      "flight_status": "scheduled",
+      "departure": {
+        "airport": "Tyler Pounds Regional Airport",
+        "timezone": "America/Chicago",
+        "iata": "TYR",
+        "icao": "KTYR",
+        "terminal": null,
+        "gate": "4",
+        "delay": null,
+        "scheduled": "2025-04-12T06:00:00+00:00",
+        "estimated": "2025-04-12T06:00:00+00:00",
+        "actual": null,
+        "estimated_runway": null,
+        "actual_runway": null
+      },
+      "arrival": {
+        "airport": "Dallas/Fort Worth International",
+        "timezone": "America/Chicago",
+        "iata": "DFW",
+        "icao": "KDFW",
+        "terminal": "E",
+        "gate": "E26",
+        "baggage": "E37",
+        "scheduled": "2025-04-12T07:10:00+00:00",
+        "delay": null,
+        "estimated": null,
+        "actual": null,
+        "estimated_runway": null,
+        "actual_runway": null
+      },
+      "airline": {
+        "name": "AlphaSky",
+        "iata": "AS",
+        "icao": "JAG"
+      },
+      "flight": {
+        "number": "6707",
+        "iata": "AS6707",
+        "icao": "JAG6707",
+        "codeshared": {
+          "airline_name": "american airlines",
+          "airline_iata": "aa",
+          "airline_icao": "aal",
+          "flight_number": "6270",
+          "flight_iata": "aa6270",
+          "flight_icao": "aal6270"
+        }
+      },
+      "aircraft": null,
+      "live": null
+    },
+    {
+      "flight_date": "2025-04-11",
+      "flight_status": "landed",
+      "departure": {
+        "airport": "Tyler Pounds Regional Airport",
+        "timezone": "America/Chicago",
+        "iata": "TYR",
+        "icao": "KTYR",
+        "terminal": null,
+        "gate": "4",
+        "delay": 55,
+        "scheduled": "2025-04-11T06:00:00+00:00",
+        "estimated": "2025-04-11T06:00:00+00:00",
+        "actual": "2025-04-11T06:55:00+00:00",
+        "estimated_runway": "2025-04-11T06:55:00+00:00",
+        "actual_runway": "2025-04-11T06:55:00+00:00"
+      },
+      "arrival": {
+        "airport": "Dallas/Fort Worth International",
+        "timezone": "America/Chicago",
+        "iata": "DFW",
+        "icao": "KDFW",
+        "terminal": "E",
+        "gate": "E24",
+        "baggage": "E37",
+        "scheduled": "2025-04-11T07:10:00+00:00",
+        "delay": 11,
+        "estimated": "2025-04-11T07:24:00+00:00",
+        "actual": "2025-04-11T07:21:00+00:00",
+        "estimated_runway": "2025-04-11T07:21:00+00:00",
+        "actual_runway": "2025-04-11T07:21:00+00:00"
+      },
+      "airline": {
+        "name": "AlphaSky",
+        "iata": "AS",
+        "icao": "JAG"
+      },
+      "flight": {
+        "number": "6707",
+        "iata": "AS6707",
+        "icao": "JAG6707",
+        "codeshared": {
+          "airline_name": "american airlines",
+          "airline_iata": "aa",
+          "airline_icao": "aal",
+          "flight_number": "6270",
+          "flight_iata": "aa6270",
+          "flight_icao": "aal6270"
+        }
+      },
+      "aircraft": null,
+      "live": null
+    }
+  ]
+}
+2025-04-12 12:17:51,440 - flight_api - DEBUG - Key terminal not found in data
+2025-04-12 12:17:51,441 - flight_api - DEBUG - Key aircraft not found in data
+2025-04-12 12:17:51,442 - flight_api - DEBUG - Key estimated not found in data
+2025-04-12 12:17:51,446 - flight_api - DEBUG - Key delay not found in data
+2025-04-12 12:17:51,446 - flight_api - DEBUG - Key live not found in data
+2025-04-12 12:17:51,447 - flight_api - DEBUG - Key live not found in data
+2025-04-12 12:17:51,448 - flight_api - INFO - Successfully retrieved and cached flight info for AS6707
+2025-04-12 12:17:51,449 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6707 (Alaska Airlines) Information:\nTime: 2025-04-12T06:00:00+00:00\nDestination: Dallas/Fort Worth International\nStatus: scheduled\nGate: 4\nTerminal: Unknown\nAircraft: Unknown\nEstimated Arrival: Unknown\nDelay: Unknown minutes\nCodeshare: AlphaSky (aa6270)"}
+2025-04-12 12:17:51,451 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6707', 'departure_time': '2025-04-12T06:00:00+00:00', 'destination': 'Dallas/Fort Worth International', 'status': 'scheduled', 'gate': '4', 'terminal': 'Unknown', 'aircraft': 'Unknown', 'estimated_arrival': 'Unknown', 'delay': 'Unknown', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa6270'}
+2025-04-12 12:17:51,453 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:17:51] "GET /api/flight/AS6707 HTTP/1.1" 200 -
+2025-04-12 12:17:51,482 - __main__ - INFO - Processing request for flight AS6707
+2025-04-12 12:17:51,483 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Microsoft Edge";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'X-Api-Key': 'your_api_key_here', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/flight/AS6707', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9,en-IN;q=0.8'}
+2025-04-12 12:17:51,483 - __main__ - INFO - Using API key from request headers
+2025-04-12 12:17:51,484 - __main__ - INFO - Generated query: What is the status of flight AS6707?
+2025-04-12 12:17:51,485 - flight_api - INFO - Processing request for flight AS6707
+2025-04-12 12:17:51,486 - flight_api - INFO - Using cached data for flight AS6707
+2025-04-12 12:17:51,486 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6707 (Alaska Airlines) Information:\nTime: 2025-04-12T06:00:00+00:00\nDestination: Dallas/Fort Worth International\nStatus: scheduled\nGate: 4\nTerminal: Unknown\nAircraft: Unknown\nEstimated Arrival: Unknown\nDelay: Unknown minutes\nCodeshare: AlphaSky (aa6270)"}
+2025-04-12 12:17:51,488 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6707', 'departure_time': '2025-04-12T06:00:00+00:00', 'destination': 'Dallas/Fort Worth International', 'status': 'scheduled', 'gate': '4', 'terminal': 'Unknown', 'aircraft': 'Unknown', 'estimated_arrival': 'Unknown', 'delay': 'Unknown', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa6270'}
+2025-04-12 12:17:51,489 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:17:51] "GET /api/flight/AS6707 HTTP/1.1" 200 -
+2025-04-12 12:17:51,499 - __main__ - INFO - Processing request for flight AS6707
+2025-04-12 12:17:51,500 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Microsoft Edge";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'X-Api-Key': 'your_api_key_here', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/flight/AS6707', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9,en-IN;q=0.8'}
+2025-04-12 12:17:51,502 - __main__ - INFO - Using API key from request headers
+2025-04-12 12:17:51,502 - __main__ - INFO - Generated query: What is the status of flight AS6707?
+2025-04-12 12:17:51,504 - flight_api - INFO - Processing request for flight AS6707
+2025-04-12 12:17:51,505 - flight_api - INFO - Using cached data for flight AS6707
+2025-04-12 12:17:51,506 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6707 (Alaska Airlines) Information:\nTime: 2025-04-12T06:00:00+00:00\nDestination: Dallas/Fort Worth International\nStatus: scheduled\nGate: 4\nTerminal: Unknown\nAircraft: Unknown\nEstimated Arrival: Unknown\nDelay: Unknown minutes\nCodeshare: AlphaSky (aa6270)"}
+2025-04-12 12:17:51,506 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6707', 'departure_time': '2025-04-12T06:00:00+00:00', 'destination': 'Dallas/Fort Worth International', 'status': 'scheduled', 'gate': '4', 'terminal': 'Unknown', 'aircraft': 'Unknown', 'estimated_arrival': 'Unknown', 'delay': 'Unknown', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa6270'}
+2025-04-12 12:17:51,507 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:17:51] "GET /api/flight/AS6707 HTTP/1.1" 200 -
+2025-04-15 15:40:05,286 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-15 15:40:05,292 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-15 15:40:05,295 - __main__ - INFO - Starting Flask server...
+2025-04-15 15:40:05,452 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.10.33.206:5000
+2025-04-15 15:40:05,452 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 15:40:05,469 - werkzeug - INFO -  * Restarting with stat
+2025-04-15 15:40:06,109 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-15 15:40:06,112 - flight_api - INFO - FlightAPI initialized successfully
+2025-04-15 15:40:06,115 - __main__ - INFO - Starting Flask server...
+2025-04-15 15:40:06,140 - werkzeug - WARNING -  * Debugger is active!
+2025-04-15 15:40:06,176 - werkzeug - INFO -  * Debugger PIN: 421-849-148
+2025-04-15 15:44:09,711 - __main__ - INFO - Processing request for flight AS6303
+2025-04-15 15:44:09,712 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/search', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,ta;q=0.6'}
+2025-04-15 15:44:09,713 - __main__ - INFO - Using API key from environment variable
+2025-04-15 15:44:09,714 - __main__ - INFO - Generated query: What is the status of flight AS6303?
+2025-04-15 15:44:09,715 - flight_api - INFO - Processing request for flight AS6303
+2025-04-15 15:44:09,716 - flight_api - INFO - Making API request to http://api.aviationstack.com/v1/flights
+2025-04-15 15:44:09,716 - flight_api - DEBUG - Request params: {'access_key': 'd6ad3f6bca95dcd666a53da7dbae588a', 'flight_iata': 'AS6303'}
+2025-04-15 15:44:09,732 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): api.aviationstack.com:80
+2025-04-15 15:44:10,571 - urllib3.connectionpool - DEBUG - http://api.aviationstack.com:80 "GET /v1/flights?access_key=d6ad3f6bca95dcd666a53da7dbae588a&flight_iata=AS6303 HTTP/1.1" 200 None
+2025-04-15 15:44:10,593 - flight_api - DEBUG - API Response status: 200
+2025-04-15 15:44:10,594 - flight_api - DEBUG - API Response data: {
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 1,
+    "total": 1
+  },
+  "data": [
+    {
+      "flight_date": "2025-04-14",
+      "flight_status": "landed",
+      "departure": {
+        "airport": "Dallas/Fort Worth International",
+        "timezone": "America/Chicago",
+        "iata": "DFW",
+        "icao": "KDFW",
+        "terminal": "D",
+        "gate": "D4",
+        "delay": 15,
+        "scheduled": "2025-04-14T15:14:00+00:00",
+        "estimated": "2025-04-14T15:14:00+00:00",
+        "actual": "2025-04-14T15:29:00+00:00",
+        "estimated_runway": "2025-04-14T15:29:00+00:00",
+        "actual_runway": "2025-04-14T15:29:00+00:00"
+      },
+      "arrival": {
+        "airport": "Pensacola International Airport",
+        "timezone": "America/Chicago",
+        "iata": "PNS",
+        "icao": "KPNS",
+        "terminal": "2",
+        "gate": "5",
+        "baggage": null,
+        "scheduled": "2025-04-14T16:59:00+00:00",
+        "delay": null,
+        "estimated": "2025-04-14T16:47:00+00:00",
+        "actual": "2025-04-14T16:49:00+00:00",
+        "estimated_runway": "2025-04-14T16:49:00+00:00",
+        "actual_runway": "2025-04-14T16:49:00+00:00"
+      },
+      "airline": {
+        "name": "AlphaSky",
+        "iata": "AS",
+        "icao": "JAG"
+      },
+      "flight": {
+        "number": "6303",
+        "iata": "AS6303",
+        "icao": "JAG6303",
+        "codeshared": {
+          "airline_name": "american airlines",
+          "airline_iata": "aa",
+          "airline_icao": "aal",
+          "flight_number": "2328",
+          "flight_iata": "aa2328",
+          "flight_icao": "aal2328"
+        }
+      },
+      "aircraft": null,
+      "live": null
+    }
+  ]
+}
+2025-04-15 15:44:10,603 - flight_api - DEBUG - Key aircraft not found in data
+2025-04-15 15:44:10,604 - flight_api - DEBUG - Key live not found in data
+2025-04-15 15:44:10,605 - flight_api - DEBUG - Key live not found in data
+2025-04-15 15:44:10,606 - flight_api - INFO - Successfully retrieved and cached flight info for AS6303
+2025-04-15 15:44:10,607 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6303 (Alaska Airlines) Information:\nTime: 2025-04-14T15:14:00+00:00\nDestination: Pensacola International Airport\nStatus: landed\nGate: D4\nTerminal: D\nAircraft: Unknown\nEstimated Arrival: 2025-04-14T16:47:00+00:00\nDelay: 15 minutes\nCodeshare: AlphaSky (aa2328)"}
+2025-04-15 15:44:10,611 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6303', 'departure_time': '2025-04-14T15:14:00+00:00', 'destination': 'Pensacola International Airport', 'status': 'landed', 'gate': 'D4', 'terminal': 'D', 'aircraft': 'Unknown', 'estimated_arrival': '2025-04-14T16:47:00+00:00', 'delay': '15', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa2328'}
+2025-04-15 15:44:10,614 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 15:44:10] "GET /api/flight/AS6303 HTTP/1.1" 200 -
+2025-04-15 15:44:10,639 - __main__ - INFO - Processing request for flight AS6303
+2025-04-15 15:44:10,641 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'X-Api-Key': 'your_api_key_here', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/flight/AS6303', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,ta;q=0.6'}
+2025-04-15 15:44:10,642 - __main__ - INFO - Using API key from request headers
+2025-04-15 15:44:10,643 - __main__ - INFO - Generated query: What is the status of flight AS6303?
+2025-04-15 15:44:10,644 - flight_api - INFO - Processing request for flight AS6303
+2025-04-15 15:44:10,645 - flight_api - INFO - Using cached data for flight AS6303
+2025-04-15 15:44:10,645 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6303 (Alaska Airlines) Information:\nTime: 2025-04-14T15:14:00+00:00\nDestination: Pensacola International Airport\nStatus: landed\nGate: D4\nTerminal: D\nAircraft: Unknown\nEstimated Arrival: 2025-04-14T16:47:00+00:00\nDelay: 15 minutes\nCodeshare: AlphaSky (aa2328)"}
+2025-04-15 15:44:10,647 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6303', 'departure_time': '2025-04-14T15:14:00+00:00', 'destination': 'Pensacola International Airport', 'status': 'landed', 'gate': 'D4', 'terminal': 'D', 'aircraft': 'Unknown', 'estimated_arrival': '2025-04-14T16:47:00+00:00', 'delay': '15', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa2328'}
+2025-04-15 15:44:10,649 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 15:44:10] "GET /api/flight/AS6303 HTTP/1.1" 200 -
+2025-04-15 15:44:10,669 - __main__ - INFO - Processing request for flight AS6303
+2025-04-15 15:44:10,670 - __main__ - DEBUG - Request headers: {'Host': 'localhost:5000', 'Connection': 'close', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"', 'X-Api-Key': 'your_api_key_here', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5173/flight/AS6303', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,ta;q=0.6'}
+2025-04-15 15:44:10,670 - __main__ - INFO - Using API key from request headers
+2025-04-15 15:44:10,671 - __main__ - INFO - Generated query: What is the status of flight AS6303?
+2025-04-15 15:44:10,671 - flight_api - INFO - Processing request for flight AS6303
+2025-04-15 15:44:10,672 - flight_api - INFO - Using cached data for flight AS6303
+2025-04-15 15:44:10,673 - __main__ - INFO - Received response from QA agent: {"answer": "Flight AS6303 (Alaska Airlines) Information:\nTime: 2025-04-14T15:14:00+00:00\nDestination: Pensacola International Airport\nStatus: landed\nGate: D4\nTerminal: D\nAircraft: Unknown\nEstimated Arrival: 2025-04-14T16:47:00+00:00\nDelay: 15 minutes\nCodeshare: AlphaSky (aa2328)"}
+2025-04-15 15:44:10,674 - __main__ - INFO - Successfully processed flight info: {'flight_number': 'AS6303', 'departure_time': '2025-04-14T15:14:00+00:00', 'destination': 'Pensacola International Airport', 'status': 'landed', 'gate': 'D4', 'terminal': 'D', 'aircraft': 'Unknown', 'estimated_arrival': '2025-04-14T16:47:00+00:00', 'delay': '15', 'codeshare': 'AlphaSky', 'codeshare_flight': 'aa2328'}
+2025-04-15 15:44:10,675 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 15:44:10] "GET /api/flight/AS6303 HTTP/1.1" 200 -
