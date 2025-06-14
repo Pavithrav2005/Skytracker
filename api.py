@@ -22,6 +22,12 @@ logger = logging.getLogger(__name__)
 # Load environment variables
 load_dotenv()
 
+# Check if API key is set
+api_key = os.getenv('AVIATIONSTACK_API_KEY')
+if not api_key:
+    logger.error("AVIATIONSTACK_API_KEY environment variable is not set")
+    raise ValueError("AVIATIONSTACK_API_KEY environment variable is not set")
+
 app = Flask(__name__)
 flight_api = FlightAPI()
 
@@ -35,23 +41,6 @@ CORS(app, resources={
     }
 })
 
-def get_api_key():
-    """Get API key from environment or request headers."""
-    # First try to get from request headers
-    api_key = request.headers.get('X-API-Key')
-    if api_key:
-        logger.info("Using API key from request headers")
-        return api_key
-    
-    # Fall back to environment variable
-    api_key = os.getenv('AVIATIONSTACK_API_KEY')
-    if api_key:
-        logger.info("Using API key from environment variable")
-        return api_key
-    
-    logger.error("No API key found in headers or environment")
-    return None
-
 @app.route('/api/health', methods=['GET'])
 def health_check():
     """Health check endpoint to verify the API is running."""
@@ -63,13 +52,13 @@ def get_flight_info(flight_number):
         logger.info(f"Processing request for flight {flight_number}")
         logger.debug(f"Request headers: {dict(request.headers)}")
         
-        # Get API key
-        api_key = get_api_key()
+        # Get API key from headers or environment
+        api_key = request.headers.get('X-API-Key') or os.getenv('AVIATIONSTACK_API_KEY')
         if not api_key:
-            logger.error("API key not found")
+            logger.error("API key not found in headers or environment")
             return jsonify({
                 "error": "API key not found",
-                "details": "Please provide an API key in the X-API-Key header",
+                "details": "Please provide an API key in the X-API-Key header or set AVIATIONSTACK_API_KEY environment variable",
                 "status": 401
             }), 401
         
@@ -184,20 +173,22 @@ def get_flight_info(flight_number):
             "status": 500
         }), 500
 
-@app.route('/api/flight/<flight_number>', methods=['GET'])
-def get_flight(flight_number):
+@app.route('/api/query', methods=['POST'])
+def query():
     try:
-        # Get current flight information
-        flight_info = flight_api.get_flight_info(flight_number)
-        
-        if "error" in flight_info:
-            return jsonify(flight_info), 404
-            
-        return jsonify(flight_info)
-        
+        data = request.get_json()
+        user_query = data.get('query', '')
+        if not user_query:
+            return jsonify({'error': 'No query provided'}), 400
+        response = qa_agent_respond(user_query)
+        try:
+            response_data = json.loads(response)
+        except Exception:
+            response_data = {'answer': response}
+        return jsonify(response_data)
     except Exception as e:
-        logger.error(f"Error processing request: {str(e)}")
-        return jsonify({"error": "An unexpected error occurred"}), 500
+        logger.error(f"Error in /api/query: {str(e)}")
+        return jsonify({'error': 'Internal server error', 'details': str(e)}), 500
 
 if __name__ == '__main__':
     try:
@@ -218,4 +209,4 @@ if __name__ == '__main__':
         app.run(debug=True, port=5000, host='0.0.0.0')
     except Exception as e:
         logger.error(f"Failed to start server: {str(e)}")
-        sys.exit(1) 
+        sys.exit(1)

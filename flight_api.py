@@ -31,6 +31,7 @@ class FlightAPI:
         self.historical_data = defaultdict(list)  # Store historical data
         self.setup_logging()
         logger.info("FlightAPI initialized successfully")
+        logger.debug(f"Using API key: {self.api_key[:5]}...{self.api_key[-5:]}")
 
     def setup_logging(self):
         self.logger = logging.getLogger(__name__)
@@ -75,6 +76,8 @@ class FlightAPI:
             
             response = requests.get(f"{self.base_url}/flights", params=params)
             logger.debug(f"API Response status: {response.status_code}")
+            logger.debug(f"API Response headers: {response.headers}")
+            logger.debug(f"API Response content: {response.text}")
             
             response.raise_for_status()
             data = response.json()
